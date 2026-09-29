@@ -1,0 +1,32 @@
+Chart Run License (MIT with attribution)
+
+Copyright (c) 2026 MasterMetaverse / Piggy Sats (https://piggysats.fun)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+1. Notice. The above copyright notice and this permission notice shall be
+   included in all copies or substantial portions of the Software.
+
+2. Visible credit. Any public deployment of the Software, or of a work based
+   on it, must show the line "Chart Run engine by Piggy Sats" with a link to
+   https://piggysats.fun/ in a place players can see without special effort,
+   such as the home screen, the menu or a credits screen.
+
+3. Brand not included. The name "Piggy Sats", the "$PIGSATS" ticker, the
+   Piggy character (the images in img/ and the character as drawn in
+   js/art.js) and the Piggy Sats logo are not licensed under this license. A
+   work based on the Software must replace them with its own name, character
+   and art, and must not suggest that it is made or endorsed by Piggy Sats.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
