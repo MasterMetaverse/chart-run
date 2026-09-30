@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chart Run — Piggy Sats</title>
+<meta name="description" content="Run the $PIGSATS chart. Grab the sats, stomp the scammers, jump the rug pits and race to the ATH flag.">
+<meta name="theme-color" content="#130B21">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chart Run — a Piggy Sats platformer">
+<meta property="og:description" content="Run the chart, grab the sats, stomp the scammers. How far can Piggy go?">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="img/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Chart Run">
+<meta name="format-detection" content="telephone=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-view="home">
+
+<header class="top">
+  <a class="logo" data-site target="_blank" rel="noopener">
+    <canvas data-badge="38" aria-hidden="true"></canvas>
+    <span>Piggy Sats</span>
+  </a>
+  <div class="top__actions">
+    <button class="icon-btn" id="soundBtn" type="button" aria-label="Sound" aria-pressed="true">
+      <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4Zm-2.5-8.8v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6Z"/></svg>
+      <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4-2.7-2.7Z"/></svg>
+    </button>
+    <a class="btn btn--blue btn--sm" data-buy target="_blank" rel="noopener">Buy <span data-ticker>$PIGSATS</span></a>
+  </div>
+</header>
+
+<main>
+  <!-- ═══════════════════════════════════════════ home ═══ -->
+  <section class="view home" id="home">
+    <p class="eyebrow"><span data-ticker>$PIGSATS</span> · ARC · MINI GAME</p>
+    <h1 class="title">Chart <span>Run.</span></h1>
+    <p class="lead">Run the <span data-ticker>$PIGSATS</span> chart. Grab the sats, stomp the scammers, jump the rug pits and race Piggy to the ATH flag.</p>
+
+    <div class="challenge" id="challengeCard" hidden>
+      <p><span class="eyebrow">Challenge</span><b id="challengeText"></b></p>
+      <button class="btn btn--pink btn--sm" id="challengeBtn" type="button">Accept</button>
+    </div>
+
+    <div class="hero-card" id="heroCard">
+      <canvas id="heroCoins" aria-hidden="true"></canvas>
+      <div class="bubble" id="homeBubble" role="status"></div>
+      <img id="heroPig" src="img/piggy-3d.png" alt="Piggy, tap to pet" width="303" height="260" draggable="false">
+      <span class="tag">Chasing sats since day 1</span>
+    </div>
+    <p class="hint">tap Piggy to pet</p>
+
+    <div class="card stats">
+      <div class="stats__row">
+        <strong class="lv" id="homeLevel">Lv.1</strong>
+        <div class="bar"><i id="xpFill"></i></div>
+        <small id="xpText"></small>
+      </div>
+      <div class="rank">Rank: <b id="homeRank">Piglet</b>
+      </div>
+      <div class="stats__row">
+        <span class="stats__label">Belly</span>
+        <div class="bar bar--belly"><i id="bellyFill"></i></div>
+        <small id="bellyText"></small>
+      </div>
+      <dl class="stats__grid">
+        <div><dt>Days holding</dt><dd id="daysText">0</dd></div>
+        <div><dt>Best (sats)</dt><dd id="bestText">0</dd></div>
+        <div><dt>Runs</dt><dd id="runsText">0</dd></div>
+      </dl>
+    </div>
+
+    <div class="modes" role="group" aria-label="Mode">
+      <button type="button" class="mode" data-mode="classic"><b>Classic</b><small></small></button>
+      <button type="button" class="mode" data-mode="daily"><b>Daily</b><small></small></button>
+      <button type="button" class="mode" data-mode="degen"><b>Degen</b><small></small></button>
+    </div>
+    <p class="mode-blurb" id="modeBlurb"></p>
+    <button class="btn btn--blue btn--play" id="playBtn" type="button">Feed the pig</button>
+    <button class="btn btn--ghost btn--wide install" id="installBtn" type="button" hidden>📲 Add Chart Run to your home screen</button>
+    <div class="row">
+      <button class="btn btn--ghost" id="howBtn" type="button">How to play</button>
+      <button class="btn btn--ghost" id="skinBtn" type="button">Wardrobe</button>
+    </div>
+
+    <section class="card missions" aria-labelledby="missionTitle">
+      <p class="eyebrow" id="missionTitle">Today's missions</p>
+      <ul class="mlist" id="missionList"></ul>
+      <p class="card__foot" id="missionReset"></p>
+    </section>
+
+    <section class="card records" aria-labelledby="recordTitle">
+      <p class="eyebrow">Your records · <span id="recordTitle"></span></p>
+      <ol class="rlist" id="recordList"></ol>
+      <p class="card__foot">Share a run to send friends a challenge link with your score to beat.</p>
+    </section>
+
+    <section class="split" aria-labelledby="splitTitle">
+      <p class="eyebrow">Where every trade goes</p>
+      <h2 id="splitTitle">Every trade feeds the pig.</h2>
+      <p>Each <span data-ticker>$PIGSATS</span> trade pays a <b><span data-tax>2</span>% tax</b>. In the game, every TRADE block you bump is a trade:</p>
+      <div class="split__bar" aria-hidden="true">
+        <span class="split__h" data-split-bar="holders"><span data-split="holders">81</span>%</span>
+        <span class="split__l" data-split-bar="liquidity"><span data-split="liquidity">9</span></span>
+        <span class="split__a" data-split-bar="argus"><span data-split="argus">10</span></span>
+      </div>
+      <ul class="split__legend">
+        <li><i class="dot dot--h"></i><span><b>Holders <span data-split="holders">81</span>%</b> Blue ₿ coins. Grab them, they're your sats.</span></li>
+        <li><i class="dot dot--l"></i><span><b>Liquidity <span data-split="liquidity">9</span>%</b> Pink drop power-up. A shield that blocks one hit.</span></li>
+        <li><i class="dot dot--a"></i><span><b>Argus <span data-split="argus">10</span>%</b> Purple coin. The launchpad's cut flies off every block.</span></li>
+      </ul>
+    </section>
+
+    <div class="cta">
+      <a class="btn btn--blue btn--wide" data-buy target="_blank" rel="noopener">Buy <span data-ticker>$PIGSATS</span></a>
+      <a class="btn btn--ghost btn--wide" data-anychain target="_blank" rel="noopener">Buy from any chain (deBridge)</a>
+      <div class="row">
+        <a class="btn btn--ghost" data-tg target="_blank" rel="noopener">Join the Telegram</a>
+        <a class="btn btn--ghost" data-x target="_blank" rel="noopener">Follow <span data-x-handle>@piggysats</span></a>
+      </div>
+      <p class="contract" id="contract" hidden>
+        <span>Contract</span><code id="contractVal"></code><button type="button" id="contractBtn">Copy</button>
+      </p>
+    </div>
+    <p class="fine">Game sats are points, not real Bitcoin. Nobody from Piggy Sats will DM you first, and this game never asks you to connect a wallet.</p>
+    <p class="fine">Chart Run engine by <a href="https://piggysats.fun/" target="_blank" rel="noopener">Piggy Sats</a> · <a href="https://github.com/MasterMetaverse/chart-run" target="_blank" rel="noopener">open source</a></p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ game ═══ -->
+  <section class="view game" id="game" hidden>
+    <div class="hud">
+      <div class="hud__hearts" id="hearts" aria-label="lives"></div>
+      <div class="hud__score">
+        <strong id="score">0</strong>
+        <small><span>sats</span> <span id="btc"></span></small>
+      </div>
+      <div class="hud__btns">
+        <button class="icon-btn" id="fsBtn" type="button" aria-label="Full screen" hidden>⛶</button>
+        <button class="icon-btn" id="pauseBtn" type="button" aria-label="Pause">❚❚</button>
+      </div>
+    </div>
+    <div class="hud2">
+      <span class="chip" id="levelChip">L1 Accumulation</span>
+      <span class="chip" id="clockChip">⏱ <b id="clock">150</b></span>
+      <span class="chip chip--coins">₿ <b id="coinCount">0</b></span>
+    </div>
+    <div class="board-wrap" id="boardWrap">
+      <canvas id="board" aria-label="Chart Run. Arrow keys or the on-screen buttons to run, space to jump."></canvas>
+      <div class="banner" id="banner" aria-live="polite"></div>
+    </div>
+    <p class="keys-hint">← → run · Space jump (hold to jump higher)</p>
+    <p class="rotate-tip" id="rotateTip" hidden>
+      <span>↻ Turn your phone sideways for the full view</span>
+      <button type="button" id="rotateClose" aria-label="Hide tip">✕</button>
+    </p>
+    <div class="pad" id="pad">
+      <div class="dpad" id="dpad" role="group" aria-label="Run left or right: slide your thumb">
+        <span class="dpad__half" data-side="left" aria-hidden="true">◀</span>
+        <span class="dpad__half" data-side="right" aria-hidden="true">▶</span>
+      </div>
+      <button type="button" class="pad__jump" data-pad="jump" aria-label="Jump">JUMP</button>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════════════════════════════════════════ dialogs ═══ -->
+<dialog class="dlg" id="howDlg">
+  <p class="eyebrow">How the pig plays</p>
+  <h2>Run the chart.</h2>
+  <ol class="how">
+    <li><b>Run and jump</b><p>◀ ▶ or ← → to run. JUMP or Space to jump; hold it to jump higher. Green candles go up, red candles go down.</p></li>
+    <li><b>Grab the sats</b><p>Blue ₿ coins are the holders' 81%. Every coin is 1,000 sats in your stack.</p></li>
+    <li><b>Bump TRADE blocks</b><p>Hit them from below. Every trade pays tax: coins pop out, sometimes a power-up, and Argus' cut flies off.</p></li>
+    <li><b>Stomp the scammers</b><p>Jump on Scam DM bots and bears. Chain stomps without landing for ×2, ×4, ×8. Touching them from the side costs a heart.</p></li>
+    <li><b>Watch your step</b><p>Rug pits swallow a heart. A red arrow means a dump candle is about to fall.</p></li>
+    <li><b>Power-ups</b><p><b>Pink drop</b>: liquidity shield, blocks one hit. <b>Claim</b>: pulls nearby sats in. <b>Diamond</b>: Diamond Hands, run through anything. <b>Heart</b>: +1 heart.</p></li>
+    <li><b>Reach the ATH flag</b><p>The higher you grab it, the bigger the bonus, plus time left and a level bonus. Each level is a new market phase and harder than the last.</p></li>
+    <li><b>Compete</b><p><b>Daily</b>: same levels for everyone today. <b>Degen</b>: 1 heart, faster enemies, double sats. Share a run to send friends a link with your score to beat.</p></li>
+  </ol>
+  <button class="btn btn--blue btn--wide" type="button" data-close>Let's run</button>
+</dialog>
+
+<dialog class="dlg" id="skinDlg">
+  <p class="eyebrow">Wardrobe</p>
+  <h2>Dress the pig.</h2>
+  <div class="skins" id="skinGrid"></div>
+  <button class="btn btn--ghost btn--wide" type="button" data-close>Close</button>
+</dialog>
+
+<dialog class="dlg dlg--pause" id="pauseDlg">
+  <p class="eyebrow">Paused</p>
+  <h2>Piggy is waiting.</h2>
+  <p class="pause__stats" id="pauseStats"></p>
+  <button class="btn btn--blue btn--wide" id="resumeBtn" type="button">Resume</button>
+  <div class="row">
+    <button class="btn btn--ghost" id="restartBtn" type="button">Restart</button>
+    <button class="btn btn--ghost" id="quitBtn" type="button">End run</button>
+  </div>
+</dialog>
+
+<dialog class="dlg" id="iosDlg">
+  <p class="eyebrow">Install</p>
+  <h2>Put Piggy on your home screen.</h2>
+  <ol class="how">
+    <li><b>Tap Share</b><p>The square with the arrow, at the bottom of Safari (top on iPad).</p></li>
+    <li><b>Add to Home Screen</b><p>Scroll down the list and tap it, then tap Add.</p></li>
+    <li><b>Play full screen</b><p>Open Chart Run from its icon: no browser bars, and it works offline.</p></li>
+  </ol>
+  <button class="btn btn--blue btn--wide" type="button" data-close>Got it</button>
+</dialog>
+
+<dialog class="dlg dlg--over" id="overDlg">
+  <p class="eyebrow">Run over · <span id="overMode"></span></p>
+  <h2>Oink. That's a wrap.</h2>
+  <p class="over__quote" id="overQuote"></p>
+  <div class="over__score">
+    <span>You stacked</span>
+    <strong id="overScore">0</strong>
+    <small>sats · <span id="overBtc"></span></small>
+    <em id="overBest"></em>
+  </div>
+  <p class="over__challenge" id="overChallenge" hidden></p>
+  <p class="over__saved" id="overSaved" role="status" hidden></p>
+  <dl class="over__stats">
+    <div><dt>Level</dt><dd id="overLevel">1</dd></div>
+    <div><dt>Coins</dt><dd id="overCoins">0</dd></div>
+    <div><dt>Stomps</dt><dd id="overStomps">0</dd></div>
+    <div><dt>Best chain</dt><dd id="overCombo">×1</dd></div>
+  </dl>
+  <ul class="over__xp" id="overXp"></ul>
+  <div class="row">
+    <button class="btn btn--dark" id="shareBtn" type="button">Share on 𝕏</button>
+    <button class="btn btn--ghost" id="copyBtn" type="button">Copy challenge</button>
+  </div>
+  <p class="over__hint" id="shareHint" role="status" hidden></p>
+  <button class="btn btn--blue btn--wide" id="tgShareBtn" type="button" hidden>Challenge a friend on Telegram 🎟</button>
+  <button class="link-btn" id="cardBtn" type="button">Save score card image</button>
+  <button class="btn btn--pink btn--wide" id="againBtn" type="button">Run again</button>
+  <div class="over__real">
+    <p>In the real pig, <b><span data-split="holders">81</span>% of every trade's tax</b> goes to <span data-ticker>$PIGSATS</span> holders in cirBTC. No staking, nothing to register.</p>
+    <a class="btn btn--blue btn--wide" data-buy target="_blank" rel="noopener">Buy <span data-ticker>$PIGSATS</span></a>
+    <a class="btn btn--ghost btn--wide" data-anychain target="_blank" rel="noopener">Buy from any chain (deBridge)</a>
+  </div>
+  <button class="link-btn" id="homeBtn" type="button">Back to Piggy</button>
+</dialog>
+
+<script src="js/config.js"></script>
+<script src="js/telegram.js"></script>
+<script src="js/art.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
