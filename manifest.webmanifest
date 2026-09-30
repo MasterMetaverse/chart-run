@@ -1,0 +1,17 @@
+{
+  "name": "Chart Run — Piggy Sats",
+  "short_name": "Chart Run",
+  "description": "Run the $PIGSATS chart. Grab the sats, stomp the scammers, race Piggy to the ATH.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "any",
+  "background_color": "#130B21",
+  "theme_color": "#130B21",
+  "icons": [
+    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "img/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
